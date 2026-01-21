@@ -515,7 +515,7 @@
                 <div class="form-group">
                     <div class="form-row">
                         <label class="form-label">报名单位</label>
-                        <input type="text" class="form-input" value="10279上海华职学院" readonly style="background: #f5f5f5;">
+                        <input type="text" class="form-input" value="10689西安交通大学" readonly style="background: #f5f5f5;">
                     </div>
                 </div>
 
@@ -573,7 +573,7 @@
                 <table class="score-table">
                     <tr>
                         <td width="120" class="score-label">姓名</td>
-                        <td class="score-value" id="resultName">张明</td>
+                        <td class="score-value" id="resultName">李金烨</td>
                     </tr>
                     <tr>
                         <td class="score-label">报名号</td>
@@ -585,30 +585,30 @@
                     </tr>
                     <tr>
                         <td class="score-label">总分</td>
-                        <td class="total-score" id="totalScore">423</td>
+                        <td class="total-score" id="totalScore">352</td>
                     </tr>
                     <tr>
                         <td class="score-label">第一门</td>
-                        <td class="score-value" id="subject1">(101)思想政治理论：<span id="score1">78</span></td>
+                        <td class="score-value" id="subject1">(101)思想政治理论：<span id="score1">60</span></td>
                     </tr>
                     <tr>
                         <td class="score-label">第二门</td>
-                        <td class="score-value" id="subject2">(201)英语一：<span id="score2">85</span></td>
+                        <td class="score-value" id="subject2">(202)英语二：<span id="score2">65</span></td>
                     </tr>
                     <tr>
                         <td class="score-label">第三门</td>
-                        <td class="score-value" id="subject3">(301)数学一：<span id="score3">132</span></td>
+                        <td class="score-value" id="subject3">(302)数学二：<span id="score3">140</span></td>
                     </tr>
                     <tr>
                         <td class="score-label">第四门</td>
-                        <td class="score-value" id="subject4">(408)计算机专业基础综合：<span id="score4">128</span></td>
+                        <td class="score-value" id="subject4">(408)计算机专业基础综合：<span id="score4">87</span></td>
                     </tr>
                 </table>
 
                 <!-- 备注 -->
                 <div class="hint-section" style="margin-top: 20px;">
                     <p class="hint-text">
-                        <span style="color: #333; font-weight: bold;">备注：</span>工程管理专业中的总分参考排名：<span id="ranking" style="color: #333; font-weight: bold;">15</span>
+                        <span style="color: #333; font-weight: bold;">备注：</span>工程管理专业中的总分参考排名：<span id="ranking" style="color: #333; font-weight: bold;">暂无</span>
                     </p>
                     <p class="hint-text" style="margin-top: 10px;">
                         注：若查询的成绩为负值，表示有缺考、违纪等情况。若仍对查询结果有疑问，请咨询相应的招生单位。
@@ -644,21 +644,21 @@
         const CONFIG = {
             account: {
                 examNumber: "102862023001234",  // 你的准考证号
-                name: "张明",                     // 你的姓名
-                idCard: "110101200001011234"    // 你的身份证号
+                name: "李金烨",                     // 你的姓名
+                idCard: "220302200303260616"    // 你的身份证号
             },
             scores: {
-                total: 423,                     // 总分
+                total: 352,                     // 总分
                 subjects: [
-                    { code: "101", name: "思想政治理论", score: 78 },
-                    { code: "201", name: "英语一", score: 85 },
-                    { code: "301", name: "数学一", score: 132 },
-                    { code: "408", name: "计算机专业基础综合", score: 128 }
+                    { code: "101", name: "思想政治理论", score: 60 },
+                    { code: "202", name: "英语二", score: 65 },
+                    { code: "302", name: "数学二", score: 140 },
+                    { code: "408", name: "计算机专业基础综合", score: 87 }
                 ],
-                ranking: 15                     // 专业排名
+                ranking: 278                     // 专业排名
             },
             applyInfo: {
-                school: "北京理工大学",
+                school: "西安交通大学",
                 applyNo: "102862023001234"
             }
         };
@@ -780,24 +780,7 @@
                 return;
             }
 
-            // 更新成绩信息
-            document.getElementById('resultName').textContent = CONFIG.account.name;
-            document.getElementById('resultApplyNo').textContent = CONFIG.applyInfo.applyNo;
-            document.getElementById('resultExamNo').textContent = CONFIG.account.examNumber;
-            document.getElementById('totalScore').textContent = CONFIG.scores.total;
-            document.getElementById('ranking').textContent = CONFIG.scores.ranking;
 
-            // 更新各科成绩
-            CONFIG.scores.subjects.forEach((subject, index) => {
-                const subjectElement = document.getElementById(`subject${index + 1}`);
-                const scoreElement = document.getElementById(`score${index + 1}`);
-                if (subjectElement) {
-                    subjectElement.innerHTML = `(${subject.code})${subject.name}：`;
-                }
-                if (scoreElement) {
-                    scoreElement.textContent = subject.score;
-                }
-            });
 
             showPage('page3');
         }
